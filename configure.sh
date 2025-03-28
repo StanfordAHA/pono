@@ -121,6 +121,8 @@ cmake_opts="-DCMAKE_BUILD_TYPE=$buildtype -DPONO_LIB_TYPE=${lib_type} -DPONO_STA
 [ $with_profiling != default ] \
     && cmake_opts="$cmake_opts -DWITH_PROFILING=$with_profiling"
 
+&& cmake_opts="$cmake_opts -DCMAKE_POLICY_VERSION_MINIMUM=3.5"    
+
 root_dir=$(pwd)
 
 [ -e "$build_dir" ] && rm -r "$build_dir"
@@ -130,6 +132,6 @@ cd "$build_dir" || exit 1
 
 [ -e CMakeCache.txt ] && rm CMakeCache.txt
 
-echo "Running with cmake options: $cmake_opts"
+echo "Running with cmake options: $cmake_opts in root dir: $root_dir"
 
 cmake "$root_dir" $cmake_opts 2>&1
