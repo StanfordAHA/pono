@@ -121,7 +121,7 @@ cmake_opts="-DCMAKE_BUILD_TYPE=$buildtype -DPONO_LIB_TYPE=${lib_type} -DPONO_STA
 [ $with_profiling != default ] \
     && cmake_opts="$cmake_opts -DWITH_PROFILING=$with_profiling"
 
-&& cmake_opts="$cmake_opts -DCMAKE_POLICY_VERSION_MINIMUM=3.5"    
+cmake_opts="$cmake_opts -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
 root_dir=$(pwd)
 
